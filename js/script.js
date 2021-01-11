@@ -4,6 +4,7 @@ const scoreCounter = document.querySelector(".counter").children[1];
 const firstTurn = document.querySelector(".turn").children[1];
 const [choicex, choiceo] = Array.from(document.querySelectorAll(".btn"));
 const computerArray = [];
+const startButton = document.querySelector(".start");
 
 let userFigure = "x";
 let computerFigure = "o";
@@ -27,6 +28,14 @@ function firstTurnAssign() {
 }
 
 firstTurnAssign();
+
+/* Boton "Comenzar a jugar" */
+// startButton.addEventListener('click', () => {
+//     if (gameStatus === "gameover") {
+//         startButton.textContent = "Jugando...";
+//         return gameStatus === "playing";
+//     } else return;
+// })
 
 /*Eleccion de la figura del usuario*/
 function choiceFigure () {
@@ -73,6 +82,20 @@ boxArray.forEach(box => {
 });
 }
 
+/* imprime figura de la computadora */
+function computerPrint () {
+    let i = Math.floor(Math.random()*9);
+    let box = boxArray[i];
+    if (box.dataset.status !== "taken" && turn === "computer"){
+    box.textContent= `${computerFigure}`;
+    box.dataset.status = "taken";
+    box.dataset.who = "byComputer";
+    computerPlays.push(boxArray.indexOf(box));
+    winnerChecker(computerPlays);
+    nextTurn();
+    } else return;
+}
+
 /* verifica si los numeros se encuentran dentro del array */
 function containsAll (arr, ...nums) {
     for (let num of nums) {
@@ -95,21 +118,6 @@ function winnerChecker(arraytocheck) {
         return gameStatus = "gameover";
         }
     }
-}
-
-
-/* imprime figura de la computadora */
-function computerPrint () {
-    let i = Math.floor(Math.random()*9);
-    let box = boxArray[i];
-    if (box.dataset.status !== "taken" && turn === "computer"){
-    box.textContent= `${computerFigure}`;
-    box.dataset.status = "taken";
-    box.dataset.who = "byComputer";
-    computerPlays.push(boxArray.indexOf(box));
-    winnerChecker(computerPlays);
-    nextTurn();
-    } else return;
 }
 
 // analizar bien
