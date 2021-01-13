@@ -44,8 +44,9 @@ choiceo.addEventListener("click", () => {
     return userFigure = "O", computerFigure= "X";
 });
     }
-}
+};
 
+choiceFigure();
 
 /* Boton "Comenzar a jugar" */
 startButton.addEventListener('click', () => {
@@ -69,14 +70,14 @@ function firstTurnAssign() {
 }
 
 /*cambio de turno*/
-// function nextTurn () {
-//     if (turn === "computer") {
-//         firstTurn.textContent = `${userName}`;
-//         return turn = "player";
-//     } else {firstTurn.textContent = `Computer`;
-//         return turn = "computer";
-//     };
-// }
+function nextTurn () {
+    if (turn === "computer") {
+        firstTurn.textContent = `${userName}`;
+        return turn = "player";
+    } else {firstTurn.textContent = `Computer`;
+        return turn = "computer";
+    };
+}
 
 /*imprime figura del usuario*/
 function userPrint () {
