@@ -89,8 +89,8 @@ boxArray.forEach(box => {
         userPlays.push(boxArray.indexOf(box));
         winnerChecker(userPlays);
         nextTurn();
-        computerPrint();
-    } else return setTimeout(computerPrintDelay(computerPrint), 1000);;
+        computerPrintDelay(computerPrint);
+    } else return computerPrintDelay(computerPrint);;
     })
 });
 }
