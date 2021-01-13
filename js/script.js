@@ -54,6 +54,7 @@ startButton.addEventListener('click', () => {
         startButton.textContent = "Jugando...";
         firstTurnAssign();
         userPrint();
+        computerPrintDelay(computerPrint);
         return gameStatus = "playing";
     } else return alert("elegí una figura");
 })
@@ -66,7 +67,8 @@ function firstTurnAssign() {
         return turn = "player";
     } else {
         firstTurn.textContent = "Computer";
-        return turn = "computer";}
+        return turn = "computer";
+    }
 }
 
 /*cambio de turno*/
@@ -90,7 +92,7 @@ boxArray.forEach(box => {
         winnerChecker(userPlays);
         nextTurn();
         computerPrintDelay(computerPrint);
-    } else return computerPrintDelay(computerPrint);;
+    } else return computerPrintDelay(computerPrint);
     })
 });
 }
