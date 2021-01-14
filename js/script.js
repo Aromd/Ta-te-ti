@@ -44,8 +44,9 @@ choiceo.addEventListener("click", () => {
     return userFigure = "O", computerFigure= "X";
 });
     }
-}
+};
 
+choiceFigure();
 
 /* Boton "Comenzar a jugar" */
 startButton.addEventListener('click', () => {
@@ -53,6 +54,7 @@ startButton.addEventListener('click', () => {
         startButton.textContent = "Jugando...";
         firstTurnAssign();
         userPrint();
+        computerPrintDelay(computerPrint);
         return gameStatus = "playing";
     } else return alert("elegí una figura");
 })
@@ -65,18 +67,19 @@ function firstTurnAssign() {
         return turn = "player";
     } else {
         firstTurn.textContent = "Computer";
-        return turn = "computer";}
+        return turn = "computer";
+    }
 }
 
 /*cambio de turno*/
-// function nextTurn () {
-//     if (turn === "computer") {
-//         firstTurn.textContent = `${userName}`;
-//         return turn = "player";
-//     } else {firstTurn.textContent = `Computer`;
-//         return turn = "computer";
-//     };
-// }
+function nextTurn () {
+    if (turn === "computer") {
+        firstTurn.textContent = `${userName}`;
+        return turn = "player";
+    } else {firstTurn.textContent = `Computer`;
+        return turn = "computer";
+    };
+}
 
 /*imprime figura del usuario*/
 function userPrint () {
@@ -88,8 +91,13 @@ boxArray.forEach(box => {
         userPlays.push(boxArray.indexOf(box));
         winnerChecker(userPlays);
         nextTurn();
+<<<<<<< HEAD
         computerPrint();
     } else return setTimeout(computerPrintDelay(computerPrint), 1000);;
+=======
+        computerPrintDelay(computerPrint);
+    } else return computerPrintDelay(computerPrint);
+>>>>>>> 7004a6e3182228bcfe0a30b634a833ef6f483114
     })
 });
 }
