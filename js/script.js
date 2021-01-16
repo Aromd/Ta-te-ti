@@ -6,7 +6,9 @@ const scoreCounter = document.querySelector(".counter").children[1];
 const scorePlayer = document.querySelector(".counter__players").children[1];
 const scoreComputer = document.querySelector(".counter__players").children[3];
 const firstTurn = document.querySelector(".turn").children[1];
-const [choicex, choiceo] = Array.from(document.querySelectorAll(".btn"));
+// const [choicex, choiceo] = Array.from(document.querySelectorAll(".btn"));
+const choicex = document.querySelectorAll(".btnx");
+const choiceo = document.querySelectorAll(".btno");
 const computerArray = [];
 const startButton = document.querySelector(".start");
 
@@ -28,6 +30,7 @@ function elegirNombre() {
     while (userName === "" || userName === undefined) {
         let userName1 = prompt("Introducí tu nombre por favor");
         userName = userName1.trim();
+        choiceFigure();
     }
 };
 
@@ -35,22 +38,29 @@ elegirNombre();
 
 /*Eleccion de la figura del usuario*/
 function choiceFigure() {
-    if (gameStatus !== "playing") {
-        choicex.addEventListener("click", () => {
-            choicex.classList.add("select");
-            choiceo.classList.remove("select");
-            return userFigure = "X", computerFigure = "O";
-        });
-
-        choiceo.addEventListener("click", () => {
-            choiceo.classList.add("select");
-            choicex.classList.remove("select");
-            return userFigure = "O", computerFigure = "X";
-        });
-    }
+        choicex.addEventListener("click", choiceFigureX);
+        choiceo.addEventListener("click", choiceFigureO);
 };
 
-choiceFigure();
+
+
+function choiceFigureX() {
+    choicex.classList.add("select");
+    choiceo.classList.remove("select");
+    return userFigure = "X", computerFigure = "O";
+}
+
+function choiceFigureO() {
+    choiceo.classList.add("select");
+    choicex.classList.remove("select");
+    return userFigure = "O", computerFigure = "X";
+}
+
+
+function removeListener() {
+    choisex.removeEventListener("click", choiceFigureX);
+    choiseo.removeEventListener("click", choiceFigureO);
+}
 
 /* Boton "Comenzar a jugar" */
 startButton.addEventListener('click', () => {
@@ -59,8 +69,9 @@ startButton.addEventListener('click', () => {
         firstTurnAssign();
         userPrint();
         computerPrintDelay(computerPrint);
+        removeListener();
         return gameStatus = "playing";
-    } else return alert("elegí una figura");
+    } else return alert("Elegí una figura antes de comenzar la partida");
 })
 
 /*sorteo del primer turno*/
@@ -138,12 +149,12 @@ function winnerChecker(arraytocheck) {
         containsAll(arraytocheck, 1, 4, 7) || containsAll(arraytocheck, 2, 5, 8) || containsAll(arraytocheck, 2, 4, 6) || containsAll(arraytocheck, 0, 4, 8))) {
         if (arraytocheck === userPlays) {
             alert(`${userName} gana!`);
-            scoreCounterPlayer ++;
+            scoreCounterPlayer++;
             scorePlayer.textContent = `${scoreCounterPlayer}`;
             return cleanBoard();
         } else if (arraytocheck === computerPlays) {
-            alert(`computer gana!`);
-            scoreCounterComputer ++;
+            alert(`La maquina gana!`);
+            scoreCounterComputer++;
             scoreComputer.textContent = `${scoreCounterComputer}`;
             return cleanBoard();
         }
@@ -166,6 +177,6 @@ function cleanBoard() {
     boxArray.forEach(box => {
         box.textContent = "";
         box.dataset.status = "";
-    }) 
+    })
     gameStatus = "gameover";
 }
