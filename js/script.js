@@ -6,9 +6,8 @@ const scoreCounter = document.querySelector(".counter").children[1];
 const scorePlayer = document.querySelector(".counter__players").children[1];
 const scoreComputer = document.querySelector(".counter__players").children[3];
 const firstTurn = document.querySelector(".turn").children[1];
-// const [choicex, choiceo] = Array.from(document.querySelectorAll(".btn"));
-const choicex = document.querySelectorAll(".btnx");
-const choiceo = document.querySelectorAll(".btno");
+const choicex = document.querySelector(".btnx");
+const choiceo = document.querySelector(".btno");
 const computerArray = [];
 const startButton = document.querySelector(".start");
 
@@ -25,41 +24,44 @@ let generalPlays = 0
 
 // FUNCIONES
 
-/* Te pide tu nombre (Está hecha con tanta malicia que te come toda la RAM hasta que le ponés nombre) */
+/*  Ingresar el nombre de usuario */
+elegirNombre();
 function elegirNombre() {
     while (userName === "" || userName === undefined) {
         let userName1 = prompt("Introducí tu nombre por favor");
         userName = userName1.trim();
-        choiceFigure();
     }
 };
 
-elegirNombre();
-
 /*Eleccion de la figura del usuario*/
-function choiceFigure() {
-        choicex.addEventListener("click", choiceFigureX);
-        choiceo.addEventListener("click", choiceFigureO);
-};
+/* Listeners para botones de seleccion */
+function choiseFigure() {
+    choicex.addEventListener('click', selectX);
+    choiceo.addEventListener('click', selectO);
+}
 
+choiseFigure();
 
-
-function choiceFigureX() {
+/* Selecciona X */
+function selectX() {
     choicex.classList.add("select");
     choiceo.classList.remove("select");
-    return userFigure = "X", computerFigure = "O";
+    userFigure = "X",
+        computerFigure = "O";
+    /* Silencia los listeners */
+    choicex.removeEventListener('click', selectX);
+    choiceo.removeEventListener('click', selectO);
 }
 
-function choiceFigureO() {
+/* Selecciona O*/
+function selectO() {
     choiceo.classList.add("select");
     choicex.classList.remove("select");
-    return userFigure = "O", computerFigure = "X";
-}
-
-
-function removeListener() {
-    choisex.removeEventListener("click", choiceFigureX);
-    choiseo.removeEventListener("click", choiceFigureO);
+    userFigure = "O",
+        computerFigure = "X";
+    /* Silencia los listeners */
+    choicex.removeEventListener('click', selectX);
+    choiceo.removeEventListener('click', selectO);
 }
 
 /* Boton "Comenzar a jugar" */
@@ -69,7 +71,6 @@ startButton.addEventListener('click', () => {
         firstTurnAssign();
         userPrint();
         computerPrintDelay(computerPrint);
-        removeListener();
         return gameStatus = "playing";
     } else return alert("Elegí una figura antes de comenzar la partida");
 })
@@ -164,19 +165,28 @@ function winnerChecker(arraytocheck) {
     }
 }
 
-/* limpiar el tablero para reiniciar la partida */
+/* Reseat todas las condiciones de partida */
 
 function cleanBoard() {
+    /* Resetea la combinacion de jugadas de la maquina  */
     computerPlays = [];
+    /* Resetea la combinacion de jugadas del usuario  */
     userPlays = [];
+    /* Resetea el contador de jugadas  */
     generalPlays = 0;
+    /* Resetea la seleccion de figura  */
     choicex.classList.remove("select");
     choiceo.classList.remove("select");
     userFigure = undefined;
+    /* Resetea el boton de jugar  */
     startButton.textContent = "Comenzar a Jugar"
+    /* Limpia las casillas del tablero  */
     boxArray.forEach(box => {
         box.textContent = "";
         box.dataset.status = "";
     })
+    /* Vuelve a escuchar los botones de seleccion de figura  */
+    choiseFigure();
+    /* Resetea el estado de la partida  */
     gameStatus = "gameover";
 }
