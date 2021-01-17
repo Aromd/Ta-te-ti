@@ -67,6 +67,10 @@ section button {
     transition: all 500ms ease;
 }
 
+.open {
+    visibility: visible;
+}
+
 .modal__container {
     width:500px;
     height: 220px;
@@ -111,5 +115,5 @@ section button {
 }
 
 .modal__button {
-    border: 2px solid red;
+    position: relative;
 }
