@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ta-te-ti Page</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,8 +24,8 @@
             <button class="box box9"></button>
         </section>
         <div class="selection">
-            <button class="btn btnx"> X </button>
-            <button class="btn btno"> O </button>
+            <button class="btnx"> X </button>
+            <button class="btno"> O </button>
         </div>
         <button class="start">Comenzar a jugar</button>
         <div class="counter">
@@ -40,6 +41,15 @@
         <div class="turn">
             <h3>Turno de: </h3>
             <p></p>
+        </div>
+
+        <div class="modal">
+            <div class="modal__container">
+                <span class="modal-x">X</span>
+                <div class="modal__title"><h3>Atención!</h3></div>
+                <p>Tenes que elegir una figura antes de empezar a jugar!</p>
+                <div class="modal__ button"><button type="button" aria-label="close" class="btn btn-primary">Cerrar</button></div>
+            </div>
         </div>
     </main>
     <script src="js/script.js"></script>
