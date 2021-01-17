@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ta-te-ti Page</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="css/style.css">       
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gradient bg-secondary">
+
+<body class="bg-secondary" style="font-family: 'Yusei Magic', sans-serif;">
     <header>
-        <h1 class="text-center my-4 ">Tic-Tac-Toe</h1>
+        <h1 class="text-center my-4 pb-4 display-3" style="font-family: 'Potta One', sans-serif">Tic-Tac-Toe</h1>
     </header>
     <main class="d-flex flex-column justify-content-center align-content-center flex-wrap">
         <section class="container" style="height: 300px; width: 300px;">
             <div class="row row-cols-3 h-100">
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box1"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box2"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box3"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box4"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box5"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box6"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box7"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box8"></button>
-                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box9"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box1"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box2"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box3"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box4"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box5"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box6"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box7"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box8"
+                    style="height: 100px; width: 98px"></button>
+                <button class="col border border-dark border-2 btn-primary display-3 fw-normal box box9"
+                    style="height: 100px; width: 98px"></button>
             </div>
         </section>
         <!-- Botones de seleccion de figura -->
-        <div class="selection">
-            <button class="btnx"> X </button>
-            <button class="btno"> O </button>
+        <div class="d-flex justify-content-around my-4 selection">
+            <button class="btn btn-dark px-5 text-primary fs-3 fw-bold btnx"> X </button>
+            <button class="btn btn-dark px-5 text-primary fs-3 fw-bold btno"> O </button>
         </div>
         <!-- Boton de inicio de partida -->
-        <button class="start">Comenzar a jugar</button>
+        <button class="btn btn-success fs-4 start">Comenzar a jugar</button>
         <!-- Info de la partida -->
-        <div class="counter">
-            <h3>Marcador:</h3>
-            <div class="counter__players">
-                <h4>Usuario: </h4>
-                <p>0</p>
-                <h4>Maquina: </h4>
-                <p>0</p>
-            </div>            
+        <div
+            class="d-flex justify-content-evenly mt-3 shadow p-2 pt-4 bg-primary bg-gradient text-white rounded counter turn">
+            <p class="fs-3 fw-bold">Turno de: </p>
+            <p class="fs-3"></p>
         </div>
-        <div class="turn">
-            <h3>Turno de: </h3>
-            <p></p>
+        <div class="my-3 shadow p-2 bg-dark bg-gradient text-white rounded counter">
+            <h3 class="fs-1 text-center my-2">Marcador</h3>
+            <div class="d-flex justify-content-around counter__players">
+                <p class="fs-3 fw-bold text-success">Usuario: </p>
+                <p class="fs-3">0</p>
+                <p class="fs-3 fw-bold text-primary">Maquina: </p>
+                <p class="fs-3">0</p>
+            </div>
         </div>
-        <!-- Modal -->
-
     </main>
     <script src="js/script.js"></script>
-   </html>
+</body>
+
+</html>

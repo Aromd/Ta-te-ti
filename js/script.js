@@ -27,7 +27,7 @@ let generalPlays = 0
 /*  Ingresar el nombre de usuario */
 elegirNombre();
 function elegirNombre() {
-    while (userName === "" || userName === undefined) {
+    while (userName === "" || userName === undefined || userName.length > 9) {
         let userName1 = prompt("Introducí tu nombre por favor");
         userName = userName1.trim();
     }
