@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ta-te-ti Page</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/bootstrap.min.css">
+=======
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+>>>>>>> javier
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
@@ -38,10 +42,16 @@
                     style="height: 100px; width: 98px"></button>
             </div>
         </section>
+<<<<<<< HEAD
         <!-- Botones de seleccion de figura -->
         <div class="d-flex justify-content-around my-4 selection">
             <button class="btn btn-dark px-5 text-primary fs-3 fw-bold btnx"> X </button>
             <button class="btn btn-dark px-5 text-primary fs-3 fw-bold btno"> O </button>
+=======
+        <div class="selection">
+            <button class="btnx"> X </button>
+            <button class="btno"> O </button>
+>>>>>>> javier
         </div>
         <!-- Boton de inicio de partida -->
         <button class="btn btn-success fs-4 start">Comenzar a jugar</button>
@@ -58,6 +68,15 @@
                 <p class="fs-3">0</p>
                 <p class="fs-3 fw-bold text-primary">Maquina: </p>
                 <p class="fs-3">0</p>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal__container">
+                <span class="modal-x">X</span>
+                <div class="modal__title"><h3>Atención!</h3></div>
+                <p>Tenes que elegir una figura antes de empezar a jugar!</p>
+                <div class="modal__button"><button type="button" aria-label="close" class="btn btn-primary">Cerrar</button></div>
             </div>
         </div>
     </main>

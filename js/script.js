@@ -10,6 +10,11 @@ const choicex = document.querySelector(".btnx");
 const choiceo = document.querySelector(".btno");
 const computerArray = [];
 const startButton = document.querySelector(".start");
+const modal = document.querySelector(".modal");
+const modalTitle = document.querySelector(".modal__title").children[0];
+const modalContent = document.querySelector(".modal__container").children[2];
+const closeModalButton = document.querySelector(".modal__button");
+const closeModalX = document.querySelector(".modal-x");
 
 let userFigure;
 let computerFigure;
@@ -23,6 +28,22 @@ let computerPlays = [];
 let generalPlays = 0
 
 // FUNCIONES
+
+/* botones dentro del modal */
+closeModalButton.addEventListener("click", () => {
+    modal.classList.remove("open");
+});
+
+closeModalX.addEventListener("click", () => {
+    modal.classList.remove("open");
+});
+
+/* Cambio de contenido de modal */
+function modalChanges (titulo, contenido) {
+    modalTitle.textContent = titulo;
+    modalContent.textContent = contenido;
+    modal.classList.add("open")
+}
 
 /*  Ingresar el nombre de usuario */
 elegirNombre();
@@ -72,7 +93,7 @@ startButton.addEventListener('click', () => {
         userPrint();
         computerPrintDelay(computerPrint);
         return gameStatus = "playing";
-    } else return alert("Elegí una figura antes de comenzar la partida");
+    } else return modalChanges("Atencion!", "Elegí una figura antes de empezar!");
 })
 
 /*sorteo del primer turno*/
@@ -149,18 +170,18 @@ function winnerChecker(arraytocheck) {
     if ((containsAll(arraytocheck, 0, 1, 2) || containsAll(arraytocheck, 3, 4, 5) || containsAll(arraytocheck, 6, 7, 8) || containsAll(arraytocheck, 0, 3, 6) ||
         containsAll(arraytocheck, 1, 4, 7) || containsAll(arraytocheck, 2, 5, 8) || containsAll(arraytocheck, 2, 4, 6) || containsAll(arraytocheck, 0, 4, 8))) {
         if (arraytocheck === userPlays) {
-            alert(`${userName} gana!`);
+            modalChanges(`Fin del juego!`,`${userName} gana!`);
             scoreCounterPlayer++;
             scorePlayer.textContent = `${scoreCounterPlayer}`;
             return cleanBoard();
         } else if (arraytocheck === computerPlays) {
-            alert(`La maquina gana!`);
+            modalChanges(`Fin del juego!`,`La maquina gana!`);
             scoreCounterComputer++;
             scoreComputer.textContent = `${scoreCounterComputer}`;
             return cleanBoard();
         }
     } else if (generalPlays === 9) {
-        alert('Empate');
+        modalChanges(`Fin del juego`,'Empate!');
         return cleanBoard();
     }
 }
