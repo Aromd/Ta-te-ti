@@ -4,29 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ta-te-ti Page</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/style.css">       
 </head>
-<body>
+<body class="bg-gradient bg-secondary">
     <header>
-        <h1>Tic-tac-toe</h1>
+        <h1 class="text-center my-4 ">Tic-Tac-Toe</h1>
     </header>
-    <main>
-        <section>
-            <button class="box box1"></button>
-            <button class="box box2"></button>
-            <button class="box box3"></button>
-            <button class="box box4"></button>
-            <button class="box box5"></button>
-            <button class="box box6"></button>
-            <button class="box box7"></button>
-            <button class="box box8"></button>
-            <button class="box box9"></button>
+    <main class="d-flex flex-column justify-content-center align-content-center flex-wrap">
+        <section class="container" style="height: 300px; width: 300px;">
+            <div class="row row-cols-3 h-100">
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box1"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box2"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box3"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box4"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box5"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box6"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box7"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box8"></button>
+                <button class="col border border-dark border-2 btn-primary display-1 fw-normal box box9"></button>
+            </div>
         </section>
+        <!-- Botones de seleccion de figura -->
         <div class="selection">
-            <button class="btn btnx"> X </button>
-            <button class="btn btno"> O </button>
+            <button class="btnx"> X </button>
+            <button class="btno"> O </button>
         </div>
+        <!-- Boton de inicio de partida -->
         <button class="start">Comenzar a jugar</button>
+        <!-- Info de la partida -->
         <div class="counter">
             <h3>Marcador:</h3>
             <div class="counter__players">
@@ -34,14 +40,14 @@
                 <p>0</p>
                 <h4>Maquina: </h4>
                 <p>0</p>
-            </div>
-            
+            </div>            
         </div>
         <div class="turn">
             <h3>Turno de: </h3>
             <p></p>
         </div>
+        <!-- Modal -->
+
     </main>
     <script src="js/script.js"></script>
-</body>
-</html>
+   </html>
